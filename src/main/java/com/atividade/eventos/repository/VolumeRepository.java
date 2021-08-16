@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
-public interface VolumeRepository extends JpaRepository<Volume, Long> {
+public interface VolumeRepository extends JpaRepository<Volume, Integer> {
 
 }

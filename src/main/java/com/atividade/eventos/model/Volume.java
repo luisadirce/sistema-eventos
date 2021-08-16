@@ -2,24 +2,29 @@ package com.atividade.eventos.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
-public class Volume implements Serializable{
+public class Volume implements Serializable {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
   @OneToMany(mappedBy = "volume")
+  @JsonManagedReference
   private List<Artigo> artigos;
 
   private String sigla_evento;
   private Integer num_edicao_evento;
   private String cidade_evento;
-  
-  @Temporal(value=TemporalType.TIMESTAMP)
+
+  @Temporal(value = TemporalType.TIMESTAMP)
   private Date data_inicio_evento;
   private String descricao_pt;
   private String descricao_en;
@@ -30,6 +35,14 @@ public class Volume implements Serializable{
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public List<Artigo> getArtigos() {
+    return artigos;
+  }
+
+  public void setArtigos(List<Artigo> artigos) {
+    this.artigos = artigos;
   }
 
   public String getSigla_evento() {
@@ -79,4 +92,30 @@ public class Volume implements Serializable{
   public void setDescricao_en(String descricao_en) {
     this.descricao_en = descricao_en;
   }
+
+  @Override
+  public int hashCode() {
+    int hash = 7;
+    hash = 23 * hash + Objects.hashCode(this.id);
+    return hash;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final Volume other = (Volume) obj;
+    if (!Objects.equals(this.id, other.id)) {
+      return false;
+    }
+    return true;
+  }
+
 }
