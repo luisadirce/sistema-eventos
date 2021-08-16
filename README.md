@@ -38,6 +38,7 @@ As seguintes ferramentas foram usadas na construção do projeto (e referências
 | DELETE     | /volumes/{id}               | deleta volume                   |
 | GET        | /volumes/{idVolume}/artigos | lista artigos de um volume      |
 | GET        | /volumes                    | lista dados de todos os volumes |
+| GET        | volumes/artigos/{idArtigo}/autores | lista dados de todos os autores de artigos de um dado volume |
 
 <br />
 
@@ -49,7 +50,6 @@ As seguintes ferramentas foram usadas na construção do projeto (e referências
 | GET        | /artigos/{id}               | recupera artigo                                              |
 | PUT        | /artigos/{id}               | atualiza artigo                                              |
 | DELETE     | /artigos/{id}               | deleta artigo                                                |
-| GET        | /artigos/{idArtigo}/autores | lista dados de todos os autores de artigos de um dado volume |
 
 <br />
 
