@@ -10,6 +10,6 @@ import org.springframework.data.repository.query.Param;
 
 @Repository
 public interface AutorRepository extends JpaRepository<Autor, Integer> {
-  @Query(value = "SELECT * FROM autor a WHERE a.artigo_id = :artigo_id", nativeQuery = true)
+  @Query(value = "SELECT * FROM autor au WHERE au.artigo_id = :artigo_id", nativeQuery = true)
   List<Autor> listVolumesArtigosAutores(@Param("artigo_id") Integer artigo_id);
 }

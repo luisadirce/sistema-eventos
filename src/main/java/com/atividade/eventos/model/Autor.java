@@ -2,7 +2,12 @@ package com.atividade.eventos.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,7 +30,7 @@ public class Autor implements Serializable {
     private String sobrenome;
     private String afiliacao;
     private String pais;
-    private String OrcID;
+    private String orcId;
 
     @JsonProperty("artigo_id")
     private void unpackNested(Integer artigo_id) {
@@ -105,12 +110,12 @@ public class Autor implements Serializable {
         this.pais = pais;
     }
 
-    public String getOrcID() {
-        return OrcID;
+    public String getOrcId() {
+        return orcId;
     }
 
-    public void setOrcID(String OrcID) {
-        this.OrcID = OrcID;
+    public void setOrcId(String orcId) {
+        this.orcId = orcId;
     }
 
     @Override

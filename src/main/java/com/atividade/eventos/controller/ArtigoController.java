@@ -19,10 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/artigos")
 public class ArtigoController {
 
-    /// Requisitos:
-    // A criação, recuperação, atualização e remoção de artigos de um volume.
-    // Listar os dados de todos os artigos de um dado volume;
-
     @Autowired
     private ArtigoRepository artigoRepository;
 

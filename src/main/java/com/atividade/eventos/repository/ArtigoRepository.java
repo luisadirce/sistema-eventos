@@ -1,13 +1,13 @@
 package com.atividade.eventos.repository;
 
-import java.util.Collection;
 import java.util.List;
 
 import com.atividade.eventos.model.Artigo;
-import org.springframework.stereotype.Repository;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ArtigoRepository extends JpaRepository<Artigo, Integer> {

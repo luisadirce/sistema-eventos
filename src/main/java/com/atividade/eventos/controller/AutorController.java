@@ -4,6 +4,7 @@ import com.atividade.eventos.model.Autor;
 import com.atividade.eventos.repository.AutorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +49,7 @@ public class AutorController {
             autor.setSobrenome(novoAutor.getSobrenome());
             autor.setAfiliacao(novoAutor.getAfiliacao());
             autor.setPais(novoAutor.getPais());
-            autor.setOrcID(novoAutor.getOrcID());
+            autor.setOrcId(novoAutor.getOrcId());
             return autorRepository.save(novoAutor);
         }).orElseGet(() -> {
             novoAutor.setId(id);
