@@ -1,13 +1,13 @@
-package com.atividade.eventos.controller;
+// package com.atividade.eventos.controller;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.bind.annotation.GetMapping;
 
-@RestController
-public class HomeController {
+// @RestController
+// public class HomeController {
 
-  @GetMapping(value = "/")
-  public String getMethodName() {
-    return "Olá Mundo";
-  }
-}
+// @GetMapping(value = "/")
+// public String getMethodName() {
+// return "Olá Mundo";
+// }
+// }
