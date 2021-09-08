@@ -220,14 +220,17 @@ h1{
 .table-stats .table-line-plus .status-social-icon {
 	color: #a75d54;
 }
-
-
-
-
 .pagination {
   display: -ms-flexbox;
   display: flex;
   padding-left: 0;
   list-style: none;
   border-radius: .25rem;
+}
+
+
+/*Volume detais page*/
+
+.article-title {
+	line-height: 2;
 }

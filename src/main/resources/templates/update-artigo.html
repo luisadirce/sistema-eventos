@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de eventos</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1 class="mb-4">Sistema de Cadastro de Eventos</h1>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="create-article">
+          <h2>Editar artigo</h2>
+          <form class="mt-3" action="#" th:action="@{../update/{id}(id=${artigo.id})}" th:object="${artigo}"
+            method="post">
+            <div class="form-group">
+              <label for="new-article-title">Título original</label>
+              <input type="text" class="form-control new-article-content" placeholder="Adicione o título original"
+                th:field="*{titulo_original}">
+              <span th:if="${#fields.hasErrors('titulo_original')}" th:errors="*{titulo_original}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-title">Título em inglês</label>
+              <input type="text" class="form-control new-article-content" placeholder="Adicione o título em inglês"
+                th:field="*{titulo_ingles}">
+              <span th:if="${#fields.hasErrors('titulo_ingles')}" th:errors="*{titulo_ingles}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-title">Volume</label>
+              <input type="text" class="form-control new-article-content" placeholder="Adicione o volume do artigo"
+                th:field="*{volume.id}">
+              <span th:if="${#fields.hasErrors('volume.id')}" th:errors="*{volume.id}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-title">Ordem do artigo no volume</label>
+              <input type="text" class="form-control new-article-content"
+                placeholder="Adicione a ordem do artigo no volume" th:field="*{ordem_artigo_volume}">
+              <span th:if="${#fields.hasErrors('ordem_artigo_volume')}" th:errors="*{ordem_artigo_volume}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-title">Idioma do artigo</label>
+              <input type="text" class="form-control new-article-content" placeholder="Adicione o idioma"
+                th:field="*{idioma}">
+              <span th:if="${#fields.hasErrors('idioma')}" th:errors="*{idioma}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-title">Palavras-chave originais</label>
+              <input type="text" class="form-control new-article-content"
+                placeholder="Adicione as palavras-chave originais" th:field="*{palavras_chave_original}">
+              <span th:if="${#fields.hasErrors('palavras_chave_original')}"
+                th:errors="*{palavras_chave_original}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-title">Palavras-chave em inglês</label>
+              <input type="text" class="form-control new-article-content"
+                placeholder="Adicione as palavras-chave em inglês" th:field="*{palavras_chave_en}">
+              <span th:if="${#fields.hasErrors('palavras_chave_en')}" th:errors="*{palavras_chave_en}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-title">Número de páginas do artigo</label>
+              <input type="text" class="form-control new-article-content"
+                placeholder="Adicione o número de páginas do artigo" th:field="*{pags_artigo}">
+              <span th:if="${#fields.hasErrors('pags_artigo')}" th:errors="*{pags_artigo}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-content">Resumo original</label>
+              <textarea class="form-control new-article-content" rows="10" placeholder="Adicione o resumo original"
+                th:field="*{resumo_original}"></textarea>
+              <span th:if="${#fields.hasErrors('resumo_original')}" th:errors="*{resumo_original}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-article-content">Resumo em inglês</label>
+              <textarea class="form-control new-article-content" rows="10" placeholder="Adicione o resumo em inglês"
+                th:field="*{resumo_en}"></textarea>
+              <span th:if="${#fields.hasErrors('resumo_en')}" th:errors="*{resumo_en}"></span>
+            </div>
+            <input type="submit" value="Atualizar artigo">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<footer>
+  <!-- jQuery,  Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</footer>

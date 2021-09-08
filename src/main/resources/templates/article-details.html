@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de eventos</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="home-button mb-3">
+          <div>
+            <a th:href="@{/volume/{id}(id=${artigo.volume.id})}" class="btn btn-info">Retornar para detalhes do
+              volume</a>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between w-100">
+          <div>
+            <h1 class="mb-4">Detalhes do artigo</h1>
+          </div>
+          <div>
+            <a th:href="@{edit/{id}(id=${artigo.id})}" class="btn btn-info">Editar Artigo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="main-box">
+          <div class="volume-data">
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Título original: </p>
+              </strong>
+              <p th:text="${artigo.titulo_original}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Título em inglês: </p>
+              </strong>
+              <p th:text="${artigo.titulo_ingles}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Volume: </p>
+              </strong>
+              <p th:text="${artigo.volume.id}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Ordem do artigo no volume: </p>
+              </strong>
+              <p th:text="${artigo.ordem_artigo_volume}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Idioma do artigo: </p>
+              </strong>
+              <p th:text="${artigo.idioma}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Palavras-chave originais: </p>
+              </strong>
+              <p th:text="${artigo.palavras_chave_original}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Palavras-chave em inglês: </p>
+              </strong>
+              <p th:text="${artigo.palavras_chave_en}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Número de páginas: </p>
+              </strong>
+              <p th:text="${artigo.pags_artigo}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Resumo original: </p>
+              </strong>
+              <p th:text="${artigo.resumo_original}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Resumo em inglês: </p>
+              </strong>
+              <p th:text="${artigo.resumo_en}"></p>
+            </div>
+          </div>
+          <div class="authors mb-3">
+            <strong>
+              <p class="mb-2">Autores</p>
+            </strong>
+            <div class="author ml-3 mb-3">
+              <div class="d-flex w-100">
+                <div>
+                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Nome completo: bla bla bla bla bla bla bla</strong>
+                  </p>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-info">Ver mais detalhes</button>
+                </div>
+              </div>
+            </div>
+            <div class="author ml-3 mb-3">
+              <div class="d-flex w-100">
+                <div>
+                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Nome completo: bla bla bla bla bla bla bla</strong>
+                  </p>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-info">Ver mais detalhes</button>
+                </div>
+              </div>
+            </div>
+            <div class="author ml-3 mb-3">
+              <div class="d-flex w-100">
+                <div>
+                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Nome completo: bla bla bla bla bla bla bla</strong>
+                  </p>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-info">Ver mais detalhes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<footer>
+  <!-- jQuery,  Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</footer>

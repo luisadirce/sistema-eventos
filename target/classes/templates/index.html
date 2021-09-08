@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de eventos</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-between w-100">
+          <div>
+            <h1 class="mb-4">Sistema de Cadastro de Eventos</h1>
+          </div>
+          <div>
+            <a href="/createvolume" class="btn btn-info">Adicione um volume</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div th:switch="${volumes}">
+          <h2 th:case="null">Não há volumes cadastrados ainda!</h2>
+          <div th:case="*">
+            <h2>Volumes</h2>
+            <div class="main-box clearfix">
+              <div class="table-responsive">
+                <table class="table volume-list">
+                  <thead>
+                    <tr>
+                      <th><span>Sigla</span></th>
+                      <th><span>Número da edição</span></th>
+                      <th><span>Data</span></th>
+                      <th>&nbsp;</th>
+                      <th>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="volume : ${volumes}">
+                      <td th:text="${volume.sigla_evento}"></td>
+                      <td th:text="${volume.num_edicao_evento}"></td>
+                      <td th:text="${volume.data_inicio_evento}"></td>
+                      <td style="width: 20%;">
+                        <a th:href="@{volume/{id}(id=${volume.id})}">
+                          <button type="button" class="btn btn-info">Ver mais</button>
+                        </a>
+                      </td>
+                      <td style="width: 20%;">
+                        <a th:href="@{volume/delete/{id}(id=${volume.id})}">
+                          <button type="button" class="btn btn-danger">Remover</button>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<footer>
+  <!-- jQuery,  Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</footer>

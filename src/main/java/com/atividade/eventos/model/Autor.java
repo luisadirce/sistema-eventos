@@ -29,6 +29,7 @@ public class Autor implements Serializable {
     private String nome_meio;
     private String sobrenome;
     private String afiliacao;
+    private String afiliacao_en;
     private String pais;
     private String orcId;
 
@@ -96,6 +97,14 @@ public class Autor implements Serializable {
 
     public String getAfiliacao() {
         return afiliacao;
+    }
+
+    public void setAfiliacao_en(String afiliacao_en) {
+        this.afiliacao_en = afiliacao_en;
+    }
+
+    public String getAfiliacao_en() {
+        return afiliacao_en;
     }
 
     public void setAfiliacao(String afiliacao) {

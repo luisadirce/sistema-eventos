@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de eventos</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="home-button mb-3">
+          <div>
+            <a href="/" class="btn btn-info">Página Inicial</a>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between w-100">
+          <div>
+            <h1 class="mb-4">Detalhes do volume</h1>
+          </div>
+          <div>
+            <a th:href="@{edit/{id}(id=${volume.id})}" class="btn btn-info">Editar Volume</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="main-box">
+          <div class="volume-data">
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Sigla do evento: </p>
+              </strong>
+              <p th:text="${volume.sigla_evento}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Número da edição do evento: </p>
+              </strong>
+              <p th:text="${volume.num_edicao_evento}"></p>
+            </div>
+            <div class=" d-flex">
+              <strong>
+                <p class="mr-2">Cidade do evento: </p>
+              </strong>
+              <p>Niterói</p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Data do início do evento: </p>
+              </strong>
+              <p th:text="${volume.data_inicio_evento}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Descrição pt: </p>
+              </strong>
+              <p th:text="${volume.descricao_pt}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Descrição en: </p>
+              </strong>
+              <p th:text="${volume.descricao_en}"></p>
+            </div>
+          </div>
+          <div class="articles mb-3">
+            <div th:switch="${volume.artigos}">
+              <strong th:case="null">
+                <p>O volume não possui artigos</p>
+              </strong>
+              <div th:case="*">
+                <strong>
+                  <p class="mb-2">Artigos</p>
+                </strong>
+                <div class="article ml-3 mb-3" th:each="volume.artigo : ${volume.artigos}">
+                  <div class="d-flex w-100">
+                    <div>
+                      <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: </strong></p>
+                      <p th:text="${volume.artigo.titulo_original}"></p>
+                    </div>
+                    <div>
+                      <button type="button" class="btn btn-info">Editar Artigo</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<footer>
+  <!-- jQuery,  Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</footer>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de eventos</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1 class="mb-4">Sistema de Cadastro de Eventos</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="create-volume">
+          <h2>Editar volume</h2>
+          <form class="mt-3" action="#" th:action="@{../update/{id}(id=${volume.id})}" th:object="${volume}"
+            method="post">
+            <div class="form-group">
+              <label for="new-volume-title">Sigla</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione a sigla do volume"
+                th:field="*{sigla_evento}">
+              <span th:if="${#fields.hasErrors('sigla_evento')}" th:errors="*{sigla_evento}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Número da edição</label>
+              <input type="text" class="form-control new-volume-content"
+                placeholder="Adicione o número da edição do evento" th:field="*{num_edicao_evento}">
+              <span th:if="${#fields.hasErrors('num_edicao_evento')}" th:errors="*{num_edicao_evento}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Cidade</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione a cidade do evento"
+                th:field="*{cidade_evento}">
+              <span th:if="${#fields.hasErrors('cidade_evento')}" th:errors="*{cidade_evento}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Data de início</label>
+              <input type="text" class="form-control new-volume-content"
+                placeholder="Adicione a data de início do evento" th:field="*{data_inicio_evento}">
+              <span th:if="${#fields.hasErrors('data_inicio_evento')}" th:errors="*{data_inicio_evento}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-content">Descrição em português</label>
+              <textarea class="form-control new-volume-content" rows="10"
+                placeholder="Adicione a descrição em português" th:field="*{descricao_pt}"></textarea>
+              <span th:if="${#fields.hasErrors('descricao_pt')}" th:errors="*{descricao_pt}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-content">Descrição em inglês</label>
+              <textarea class="form-control new-volume-content" rows="10" placeholder="Adicione a descrição em inglês"
+                th:field="*{descricao_en}"></textarea>
+              <span th:if="${#fields.hasErrors('descricao_en')}" th:errors="*{descricao_en}"></span>
+            </div>
+            <input type="submit" value="Atualizar volume">
+          </form>
+
+          <div class="articles mb-3">
+            <strong>
+              <p class="mb-2">Artigos</p>
+            </strong>
+            <div class="article ml-3 mb-3">
+              <div class="d-flex w-100">
+                <div>
+                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: bla bla bla</strong></p>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-info">Editar Artigo</button>
+                </div>
+              </div>
+            </div>
+            <div class="article ml-3 mb-3">
+              <div class="d-flex w-100">
+                <div>
+                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: bla bla bla</strong></p>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-info">Editar Artigo</button>
+                </div>
+              </div>
+            </div>
+            <div class="article ml-3 mb-3">
+              <div class="d-flex w-100">
+                <div>
+                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: bla bla bla</strong></p>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-info">Editar Artigo</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<footer>
+  <!-- jQuery,  Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</footer>

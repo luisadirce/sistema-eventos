@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de eventos</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="home-button mb-3">
+          <div>
+            <a th:href="@{../article/{id}(id=${autor.artigo.id})}" class="btn btn-info">Retornar para detalhes do
+              artigo</a>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between w-100">
+          <div>
+            <h1 class="mb-4">Detalhes do autor</h1>
+          </div>
+          <div>
+            <a th:href="@{edit/{id}(id=${autor.id})}" class="btn btn-info">Editar Autor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="main-box">
+          <div class="volume-data">
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Primeiro nome: </p>
+              </strong>
+              <p th:text="${autor.primeiro_nome}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Nome do meio: </p>
+              </strong>
+              <p th:text="${autor.nome_meio}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Sobrenome: </p>
+              </strong>
+              <p th:text="${autor.sobrenome}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Artigo: </p>
+              </strong>
+              <p th:text="${autor.artigo.id}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Ordem do autor no artigo: </p>
+              </strong>
+              <p th:text="${autor.ordem_autor_artigo}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">E-mail: </p>
+              </strong>
+              <p th:text="${autor.email}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Afiliação do autor: </p>
+              </strong>
+              <p th:text="${autor.afiliacao}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Afiliação do autor em inglês: </p>
+              </strong>
+              <p th:text="${autor.afiliacao_en}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">País do autor: </p>
+              </strong>
+              <p th:text="${autor.pais}"></p>
+            </div>
+            <div class="d-flex">
+              <strong>
+                <p class="mr-2">Registro OrcID: </p>
+              </strong>
+              <p th:text="${autor.orcId}"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<footer>
+  <!-- jQuery,  Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</footer>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de eventos</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1 class="mb-4">Sistema de Cadastro de Eventos</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="create-volume">
+          <h2>Editar autor</h2>
+          <form class="mt-3" action="#" th:action="@{../update/{id}(id=${autor.id})}" th:object="${autor}"
+            method="post">
+            <div class="form-group">
+              <label for="new-volume-title">Primeiro nome</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione o primeiro nome do autor"
+                th:field="*{primeiro_nome}">
+              <span th:if="${#fields.hasErrors('primeiro_nome')}" th:errors="*{primeiro_nome}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Nome do meio</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione o nome do meio do autor"
+                th:field="*{nome_meio}">
+              <span th:if="${#fields.hasErrors('nome_meio')}" th:errors="*{nome_meio}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Sobrenome</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione o sobrenome do autor"
+                th:field="*{sobrenome}">
+              <span th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Artigo</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione o id do artigo do autor"
+                th:field="*{artigo.id}">
+              <span th:if="${#fields.hasErrors('artigo.id')}" th:errors="*{artigo.id}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Ordem do autor no artigo</label>
+              <input type="text" class="form-control new-volume-content"
+                placeholder="Adicione a ordem do autor no artigo" th:field="*{ordem_autor_artigo}">
+              <span th:if="${#fields.hasErrors('ordem_autor_artigo')}" th:errors="*{ordem_autor_artigo}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">E-mail</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione o e-mail do autor"
+                th:field="*{email}">
+              <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Afiliação do autor</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione a filiação do autor"
+                th:field="*{afiliacao}">
+              <span th:if="${#fields.hasErrors('afiliacao')}" th:errors="*{afiliacao}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Afiliação do autor em inglês</label>
+              <input type="text" class="form-control new-volume-content"
+                placeholder="Adicione a filiação em inglês do autor" th:field="*{afiliacao_en}">
+              <span th:if="${#fields.hasErrors('afiliacao_en')}" th:errors="*{afiliacao_en}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">País do autor</label>
+              <input type="text" class="form-control new-volume-content" placeholder="Adicione o país do autor"
+                th:field="*{pais}">
+              <span th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></span>
+            </div>
+            <div class="form-group">
+              <label for="new-volume-title">Registro OrcID</label>
+              <input type="text" class="form-control new-volume-content"
+                placeholder="Adicione o registro OrcID do autor" th:field="*{orcId}">
+              <span th:if="${#fields.hasErrors('orcId')}" th:errors="*{orcId}"></span>
+            </div>
+            <input type="submit" value="Atualizar volume">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<footer>
+  <!-- jQuery,  Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</footer>
