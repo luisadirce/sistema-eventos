@@ -25,39 +25,49 @@ As seguintes ferramentas foram usadas na construção do projeto (e referências
 
 <br />
 
-**<h2 id="doc-api">Documentação da API</h2>**
+**<h2 id="doc-api">Documentação</h2>**
+<br />
+
+**<h3>Index</h3>**
+
+| Requisição | Rota | Resposta                        |
+| ---------- | ---- | ------------------------------- |
+| GET        | /    | lista dados de todos os volumes |
+
+
 <br />
 
 **<h3>Volume</h3>**
 
-| Requisição | Rota                        | Resposta                        |
-| ---------- | --------------------------- | ------------------------------- |
-| POST       | /volumes/novo               | criação de um volume            |
-| GET        | /volumes/{id}               | recupera volume                 |
-| PUT        | /volumes/{id}               | atualiza volume                 |
-| DELETE     | /volumes/{id}               | deleta volume                   |
-| GET        | /volumes/{idVolume}/artigos | lista artigos de um volume      |
-| GET        | /volumes                    | lista dados de todos os volumes |
-| GET        | volumes/artigos/{idArtigo}/autores | lista dados de todos os autores de artigos de um dado volume |
+| Requisição | Rota                 | Resposta                        |
+| ---------- | -------------------- | ------------------------------- |
+| POST       | /createvolume        | criação de um volume            |
+| GET        | /volume/{id}         | recupera volume                 |
+| PUT        | /volume/edit/{id}    | atualiza volume                 |
+| DELETE     | /volumes/delete/{id} | deleta volume                   |
+| GET        | /volumes/{id}        | lista artigos de um volume      |
+| GET        | /                    | lista dados de todos os volumes |
+
 
 <br />
 
 **<h3>Artigo</h3>**
 
-| Requisição | Rota                        | Resposta                                                     |
-| ---------- | --------------------------- | ------------------------------------------------------------ |
-| POST       | /artigos/novo               | criação de um artigo                                         |
-| GET        | /artigos/{id}               | recupera artigo                                              |
-| PUT        | /artigos/{id}               | atualiza artigo                                              |
-| DELETE     | /artigos/{id}               | deleta artigo                                                |
+| Requisição | Rota                 | Resposta                                                     |
+| ---------- | -------------------- | ------------------------------------------------------------ |
+| POST       | /createarticle       | criação de um artigo                                         |
+| GET        | /article/{id}        | recupera artigo                                              |
+| PUT        | /article/edit/{id}   | atualiza artigo                                              |
+| DELETE     | /article/delete/{id} | deleta artigo                                                |
+| GET        | article/{id}         | lista dados de todos os autores de artigos de um dado volume |
 
 <br />
 
 **<h3>Autor</h3>**
 
-| Requisição | Rota               | Resposta            |
-| ---------- | ------------------ | ------------------- |
-| POST       | /autores/novo      | criação de um autor |
-| GET        | /autores/{idAutor} | recupera autor      |
-| PUT        | /autores/{idAutor} | atualiza autor      |
-| DELETE     | /autores/{idAutor} | deleta autor        |
+| Requisição | Rota                | Resposta            |
+| ---------- | ------------------- | ------------------- |
+| POST       | /createauthor       | criação de um autor |
+| GET        | /author/{id}        | recupera autor      |
+| PUT        | /author/edit/{id}   | atualiza autor      |
+| DELETE     | /author/delete/{id} | deleta autor        |
