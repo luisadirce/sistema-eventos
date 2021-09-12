@@ -77,27 +77,35 @@
           </div>
           <div class="articles mb-3">
             <div th:switch="${volume.artigos}">
-              <strong th:case="null">
-                <p>O volume não possui artigos</p>
-              </strong>
+              <div th:case="null">
+                <strong>
+                  <p>O volume não possui artigos</p>
+                </strong>
+              </div>
               <div th:case="*">
                 <strong>
                   <p class="mb-2">Artigos</p>
                 </strong>
-                <div class="article ml-3 mb-3" th:each="volume.artigo : ${volume.artigos}">
-                  <div class="d-flex w-100">
-                    <div>
-                      <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: </strong></p>
-                      <p th:text="${volume.artigo.titulo_original}"></p>
-                    </div>
-                    <div>
-                      <button type="button" class="btn btn-info">Editar Artigo</button>
+                <div class="article ml-3 mb-3" th:each="artigo : ${artigos}">
+                  <div th:if="${artigo.volume.id == volume.id}">
+                    <div class="d-flex w-100">
+                      <div class="d-flex">
+                        <div>
+                          <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: </strong></p>
+                        </div>
+                        <div>
+                          <p th:text="${artigo.titulo_original}"></p>
+                        </div>
+                      </div>
+                      <div>
+                        <a th:href="@{../article/{id}(id=${artigo.id})}" class="btn btn-info ml-3">Ver detalhes do
+                          artigo</a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

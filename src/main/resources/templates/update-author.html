@@ -89,7 +89,8 @@
                 placeholder="Adicione o registro OrcID do autor" th:field="*{orcId}">
               <span th:if="${#fields.hasErrors('orcId')}" th:errors="*{orcId}"></span>
             </div>
-            <input type="submit" value="Atualizar volume">
+            <input type="submit" value="Atualizar autor" class="btn btn-info">
+            <a th:href="@{../../author/{id}(id=${autor.id})}" class="btn btn-info ml-3">Descartar alterações</a>
           </form>
         </div>
       </div>

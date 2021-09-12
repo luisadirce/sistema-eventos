@@ -90,7 +90,42 @@
                 th:field="*{resumo_en}"></textarea>
               <span th:if="${#fields.hasErrors('resumo_en')}" th:errors="*{resumo_en}"></span>
             </div>
-            <input type="submit" value="Atualizar artigo">
+
+            <div class="authors mb-3">
+              <div class="d-flex">
+                <div>
+                  <strong>
+                    <p class="mb-4">Autores</p>
+                  </strong>
+                </div>
+                <div>
+                  <a th:href="@{../../createauthor}" class="btn btn-info ml-3">Adicionar novo autor</a>
+                </div>
+              </div>
+              <div class="author ml-3 mb-3" th:each="autor : ${autores}">
+                <div th:if="${autor.artigo.id == artigo.id}">
+                  <div class="d-flex w-100">
+                    <div class="d-flex">
+                      <div>
+                        <p class="pt-0 mb-0 mr-3 article-title"><strong>Nome completo: </strong>
+                      </div>
+                      <div>
+                        <p th:text="${autor.primeiro_nome} + ' ' + ${autor.nome_meio} + ' ' + ${autor.sobrenome}"></p>
+                      </div>
+                    </div>
+                    <div>
+                      <a th:href="@{/author/{id}(id=${autor.id})}" class="btn btn-info ml-3">Ver detalhes do autor</a>
+                    </div>
+                    <div>
+                      <a th:href="@{/author/delete/{id}(id=${autor.id})}" class="btn btn-danger ml-3">Remover</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="submit" value="Atualizar artigo" class="btn btn-info">
+            <a th:href="@{/article/{id}(id=${artigo.id})}" class="btn btn-info ml-3">Descartar
+              alterações</a>
           </form>
         </div>
       </div>

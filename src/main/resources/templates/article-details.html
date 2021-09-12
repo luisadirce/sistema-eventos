@@ -100,40 +100,25 @@
               <p th:text="${artigo.resumo_en}"></p>
             </div>
           </div>
+
           <div class="authors mb-3">
             <strong>
               <p class="mb-2">Autores</p>
             </strong>
-            <div class="author ml-3 mb-3">
-              <div class="d-flex w-100">
-                <div>
-                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Nome completo: bla bla bla bla bla bla bla</strong>
-                  </p>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-info">Ver mais detalhes</button>
-                </div>
-              </div>
-            </div>
-            <div class="author ml-3 mb-3">
-              <div class="d-flex w-100">
-                <div>
-                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Nome completo: bla bla bla bla bla bla bla</strong>
-                  </p>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-info">Ver mais detalhes</button>
-                </div>
-              </div>
-            </div>
-            <div class="author ml-3 mb-3">
-              <div class="d-flex w-100">
-                <div>
-                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Nome completo: bla bla bla bla bla bla bla</strong>
-                  </p>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-info">Ver mais detalhes</button>
+            <div class="author ml-3 mb-3" th:each="autor : ${autores}">
+              <div th:if="${autor.artigo.id == artigo.id}">
+                <div class="d-flex w-100">
+                  <div class="d-flex">
+                    <div>
+                      <p class="pt-0 mb-0 mr-3 article-title"><strong>Nome completo: </strong>
+                    </div>
+                    <div>
+                      <p th:text="${autor.primeiro_nome} + ' ' + ${autor.nome_meio} + ' ' + ${autor.sobrenome}"></p>
+                    </div>
+                  </div>
+                  <div>
+                    <a th:href="@{/author/{id}(id=${autor.id})}" class="btn btn-info ml-3">Ver detalhes do autor</a>
+                  </div>
                 </div>
               </div>
             </div>

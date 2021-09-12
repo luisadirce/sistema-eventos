@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="container mt-5">
+  <div class="container mt-5 mb-5">
     <div class="row">
       <div class="col">
         <h1 class="mb-4">Sistema de Cadastro de Eventos</h1>
@@ -65,44 +65,51 @@
                 th:field="*{descricao_en}"></textarea>
               <span th:if="${#fields.hasErrors('descricao_en')}" th:errors="*{descricao_en}"></span>
             </div>
-            <input type="submit" value="Atualizar volume">
+            <div class="articles mb-3">
+              <div th:switch="${volume.artigos}">
+                <div th:case="null">
+                  <strong>
+                    <p>O volume não possui artigos</p>
+                  </strong>
+                </div>
+                <div th:case="*">
+                  <div class="d-flex">
+                    <div>
+                      <strong>
+                        <p class="mb-4">Artigos</p>
+                      </strong>
+                    </div>
+                    <div>
+                      <a th:href="@{../../createarticle}" class="btn btn-info ml-3">Adicionar novo artigo</a>
+                    </div>
+                  </div>
+                  <div class="article ml-3 mb-3" th:each="artigo : ${artigos}">
+                    <div th:if="${artigo.volume.id == volume.id}">
+                      <div class="d-flex w-100">
+                        <div class="d-flex">
+                          <div>
+                            <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: </strong></p>
+                          </div>
+                          <div>
+                            <p th:text="${artigo.titulo_original}"></p>
+                          </div>
+                        </div>
+                        <div>
+                          <a th:href="@{/article/{id}(id=${artigo.id})}" class="btn btn-info ml-3">Ver detalhes do
+                            artigo</a>
+                        </div>
+                        <div>
+                          <a th:href="@{/article/delete/{id}(id=${artigo.id})}" class="btn btn-danger ml-3">Remover</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="submit" value="Atualizar volume" class="btn btn-info">
+            <a th:href="@{../{id}(id=${volume.id})}" class="btn btn-info ml-3">Descartar alterações</a>
           </form>
-
-          <div class="articles mb-3">
-            <strong>
-              <p class="mb-2">Artigos</p>
-            </strong>
-            <div class="article ml-3 mb-3">
-              <div class="d-flex w-100">
-                <div>
-                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: bla bla bla</strong></p>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-info">Editar Artigo</button>
-                </div>
-              </div>
-            </div>
-            <div class="article ml-3 mb-3">
-              <div class="d-flex w-100">
-                <div>
-                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: bla bla bla</strong></p>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-info">Editar Artigo</button>
-                </div>
-              </div>
-            </div>
-            <div class="article ml-3 mb-3">
-              <div class="d-flex w-100">
-                <div>
-                  <p class="pt-0 mb-0 mr-3 article-title"><strong>Título: bla bla bla</strong></p>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-info">Editar Artigo</button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
