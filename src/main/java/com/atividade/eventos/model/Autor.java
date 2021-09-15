@@ -3,6 +3,7 @@ package com.atividade.eventos.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,12 +26,25 @@ public class Autor implements Serializable {
 
     private Integer ordem_autor_artigo;
     private String email;
+
+    @Column(length = 64)
     private String primeiro_nome;
+
+    @Column(length = 64)
     private String nome_meio;
+
+    @Column(length = 64)
     private String sobrenome;
+
+    @Column(length = 256)
     private String afiliacao;
+
+    @Column(length = 256)
     private String afiliacao_en;
+
+    @Column(length = 2)
     private String pais;
+
     private String orcId;
 
     @JsonProperty("artigo_id")

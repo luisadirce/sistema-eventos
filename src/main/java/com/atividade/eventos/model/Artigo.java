@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,13 +32,28 @@ public class Artigo implements Serializable {
     private List<Autor> autores;
 
     private Integer ordem_artigo_volume;
+
+    @Column(length = 2)
     private String idioma;
+
+    @Column(length = 256)
     private String titulo_original;
+
+    @Column(length = 256)
     private String titulo_ingles;
+
+    @Column(length = 2048)
     private String resumo_original;
+
+    @Column(length = 2048)
     private String resumo_en;
+
+    @Column(length = 256)
     private String palavras_chave_original;
+
+    @Column(length = 256)
     private String palavras_chave_en;
+
     private Integer pags_artigo;
 
     @JsonProperty("volume_id")

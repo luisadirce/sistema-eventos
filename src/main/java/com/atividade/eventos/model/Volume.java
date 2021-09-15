@@ -20,13 +20,20 @@ public class Volume implements Serializable {
   @JsonManagedReference
   private List<Artigo> artigos;
 
+  @Column(length = 32)
   private String sigla_evento;
   private Integer num_edicao_evento;
+
+  @Column(length = 64)
   private String cidade_evento;
 
-  @Temporal(value = TemporalType.TIMESTAMP)
+  @Temporal(value = TemporalType.DATE)
   private Date data_inicio_evento;
+
+  @Column(length = 2048)
   private String descricao_pt;
+
+  @Column(length = 2048)
   private String descricao_en;
 
   public Integer getId() {
